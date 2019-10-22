@@ -1,10 +1,9 @@
 {
 	"batch_system": "htcondor",
-	"result_path": "/cephfs/user/mwelsch/results",
-	"log_folder":  "/cephfs/user/mwelsch/logs",
-	"env_setup": "/cephfs/user/mwelsch/bla.sh",
+	"result_path": "/nfs/dust/belle2/user/welsch/results",
+	"log_folder":  "/nfs/dust/belle2/user/welsch/logs",
+	"env_setup": "/afs/desy.de/user/w/welsch/bla.sh",
 	"htcondor_settings": {
-		"+ContainerOS": "Ubuntu1804"
 	}
 
 }
