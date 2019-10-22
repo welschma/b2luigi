@@ -180,8 +180,6 @@ class HTCondorProcess(BatchProcess):
         with open(submit_file_path, "w") as submit_file:
             submit_file.write(f"""
             executable = {executable_wrapper_path}
-            should_transfer_files = YES
-            transfer_input_files = settings.json
             log = {job_log_file}
             output = {stdout_log_file}
             error = {stderr_log_file}
@@ -214,7 +212,6 @@ class HTCondorProcess(BatchProcess):
             exec_wrapper.write(f"#!/bin/{shell}\n")
             exec_wrapper.write(f"source {env_setup_path}\n")
             exec_wrapper.write("echo 'Starting executable'\n")
-            exec_wrapper.write("cd /jwd\n")
             exec_wrapper.write(f"{condor_executable_cmd}\n")
 
         # make wrapper executable
