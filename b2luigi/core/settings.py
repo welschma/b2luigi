@@ -3,6 +3,7 @@ import os
 import contextlib
 import warnings
 
+from luigi import configuration
 # The global object hosting the current settings
 _current_global_settings = {}
 
@@ -145,6 +146,13 @@ def _get_setting_implementation(key, task):
     # Then check if the setting was set explicitely
     try:
         return _current_global_settings[key]
+    except KeyError:
+        pass
+    
+    # Then check luigi configuration
+
+    try:
+        return configuration.get_config().get("b2luigi", key)
     except KeyError:
         pass
 
